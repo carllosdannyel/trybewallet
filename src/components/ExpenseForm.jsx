@@ -7,25 +7,25 @@ class ExpenseForm extends Component {
     const { expenses } = this.props;
     return (
       <form>
-        <label htmlFor="expenses">
+        <label htmlFor="valor">
           Valor
-          <input data-testid="value-input" id="expenses" type="text" />
+          <input data-testid="value-input" id="valor" type="text" />
         </label>
-        <label htmlFor="description">
+        <label htmlFor="descricao">
           Descrição
-          <input data-testid="description-input" id="description" type="text" />
+          <input data-testid="description-input" id="descricao" type="text" />
         </label>
-        <label htmlFor="despesa">
+        <label htmlFor="moeda">
           Moeda
-          <select id="despesa">
+          <select id="moeda">
             {expenses.map((expense) => (
               <option key={ expense }>{expense}</option>
             ))}
           </select>
         </label>
-        <label htmlFor="despesa">
+        <label htmlFor="pagamento">
           Pagamento
-          <select data-testid="method-input" id="despesa">
+          <select data-testid="method-input" id="pagamento">
             <option>Dinheiro</option>
             <option>Cartão de crédito</option>
             <option>Cartão de débito</option>
