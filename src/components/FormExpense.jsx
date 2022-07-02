@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-class ExpenseForm extends Component {
+class FormExpense extends Component {
   render() {
     const { currencies } = this.props;
     return (
@@ -50,8 +50,8 @@ const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
 });
 
-ExpenseForm.propTypes = {
+FormExpense.propTypes = {
   currencies: PropTypes.array,
 }.isRequired;
 
-export default connect(mapStateToProps)(ExpenseForm);
+export default connect(mapStateToProps)(FormExpense);

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import fetchApi from '../services';
 import { saveCurrencies } from '../actions';
-import ExpenseForm from '../components/ExpenseForm';
+import FormExpense from '../components/FormExpense';
 
 class Wallet extends React.Component {
   componentDidMount = async () => {
@@ -22,7 +22,7 @@ class Wallet extends React.Component {
       <div>
         <h1>TrybeWallet</h1>
         <Header />
-        <ExpenseForm />
+        <FormExpense />
       </div>
     );
   }
