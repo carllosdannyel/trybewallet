@@ -24,7 +24,7 @@ class ExpenseForm extends Component {
           </select>
         </label>
         <label htmlFor="pagamento">
-          Pagamento
+          Método de pagamento
           <select data-testid="method-input" id="pagamento">
             <option>Dinheiro</option>
             <option>Cartão de crédito</option>
