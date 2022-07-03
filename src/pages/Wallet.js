@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCurrenciesThunk } from '../actions';
-import FormExpense from '../components/FormExpense';
+import ExpenseForm from '../components/ExpenseForm';
+import ExpenseTable from '../components/ExpenseTable';
 
 class Wallet extends React.Component {
   state = {
@@ -33,7 +34,8 @@ class Wallet extends React.Component {
           <p data-testid="total-field">{total.toFixed(2)}</p>
           <p data-testid="header-currency-field">BRL</p>
         </header>
-        <FormExpense saveTotal={ this.getTotal } />
+        <ExpenseForm saveTotal={ this.getTotal } />
+        <ExpenseTable />
       </div>
     );
   }
