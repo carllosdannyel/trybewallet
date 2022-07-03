@@ -2,19 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
-import fetchApi from '../services';
-import { saveCurrencies } from '../actions';
+import { fetchApiThunk } from '../actions';
 import FormExpense from '../components/FormExpense';
 
 class Wallet extends React.Component {
   componentDidMount = async () => {
-    const { dispatch } = this.props;
-    const fetch = await fetchApi();
-    dispatch(
-      saveCurrencies(
-        Object.keys(fetch).filter((currencie) => currencie !== 'USDT'),
-      ),
-    );
+    const { fetchApi } = this.props;
+    await fetchApi();
   };
 
   render() {
@@ -27,6 +21,10 @@ class Wallet extends React.Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchApi: () => dispatch(fetchApiThunk()),
+});
+
 const mapStateToProps = (state) => ({
   user: state.user,
 });
@@ -35,4 +33,4 @@ Wallet.propTypes = {
   dispatch: PropTypes.func,
 }.isRequired;
 
-export default connect(mapStateToProps)(Wallet);
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
