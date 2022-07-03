@@ -10,3 +10,11 @@ export const saveCurrencies = (currencies) => ({
   type: SAVE_CURRENCIES,
   payload: currencies,
 });
+
+export const fetchApiThunk = () => (dispatch) => fetch('https://economia.awesomeapi.com.br/json/all')
+  .then((response) => response.json())
+  .then((json) => dispatch(
+    saveCurrencies(
+      Object.keys(json).filter((currencie) => currencie !== 'USDT'),
+    ),
+  ));
