@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../components/Header';
 import { fetchCurrenciesThunk } from '../actions';
 import FormExpense from '../components/FormExpense';
 
@@ -25,10 +24,15 @@ class Wallet extends React.Component {
   };
 
   render() {
+    const { email } = this.props;
     const { total } = this.state;
     return (
       <div>
-        <Header total={ total } />
+        <header>
+          <p data-testid="email-field">{email}</p>
+          <p data-testid="total-field">{total.toFixed(2)}</p>
+          <p data-testid="header-currency-field">BRL</p>
+        </header>
         <FormExpense saveTotal={ this.getTotal } />
       </div>
     );
@@ -36,6 +40,7 @@ class Wallet extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  email: state.user.email,
   user: state.user,
   expenses: state.wallet.expenses,
 });
