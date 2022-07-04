@@ -35,7 +35,7 @@ class Wallet extends React.Component {
           <p data-testid="header-currency-field">BRL</p>
         </header>
         <ExpenseForm saveTotal={ this.getTotal } />
-        <ExpenseTable />
+        <ExpenseTable total={ total } />
       </div>
     );
   }
