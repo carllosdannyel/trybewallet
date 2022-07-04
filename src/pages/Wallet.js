@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCurrenciesThunk } from '../actions';
 import ExpenseForm from '../components/ExpenseForm';
-import ExpenseTable from '../components/ExpenseTable';
+// import ExpenseTable from '../components/ExpenseTable';
+import nameOfCoins from '../services/nameOfCoins';
 
 class Wallet extends React.Component {
   state = {
@@ -24,8 +25,11 @@ class Wallet extends React.Component {
     this.setState({ total });
   };
 
+  // Refêrencia da tabela => https://www.homehost.com.br/blog/criar-sites/tabela-html/#topico03
+
   render() {
-    const { email } = this.props;
+    const { email, expenses } = this.props;
+    console.log(this.props);
     const { total } = this.state;
     return (
       <div>
@@ -35,7 +39,49 @@ class Wallet extends React.Component {
           <p data-testid="header-currency-field">BRL</p>
         </header>
         <ExpenseForm saveTotal={ this.getTotal } />
-        <ExpenseTable total={ total } />
+        <table>
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Tag</th>
+              <th>Método de pagamento</th>
+              <th>Valor</th>
+              <th>Moeda</th>
+              <th>Câmbio utilizado</th>
+              <th>Valor convertido</th>
+              <th>Moeda de conversão</th>
+              <th>Editar/Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            {expenses.map(
+              ({
+                id,
+                description,
+                tag,
+                method,
+                value,
+                currency,
+                exchangeRates,
+              }) => (
+                <tr key={ id }>
+                  <td>{description}</td>
+                  <td>{tag}</td>
+                  <td>{method}</td>
+                  <td>{Number(value).toFixed(2)}</td>
+                  <td>{nameOfCoins(currency)}</td>
+                  <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
+                  <td>{(value * Number(exchangeRates[currency].ask)).toFixed(2)}</td>
+                  <td>Real</td>
+                  <td>
+                    <button type="button">Editar</button>
+                    <button data-testid="delete-btn" type="button">Excluir</button>
+                  </td>
+                </tr>
+              ),
+            )}
+          </tbody>
+        </table>
       </div>
     );
   }
