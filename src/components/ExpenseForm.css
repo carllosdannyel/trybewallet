@@ -1,0 +1,41 @@
+.form {
+  align-items: baseline, center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-around;
+  margin: 15% 0;
+  padding: 50px;
+  width: 25vw;
+}
+
+.form > label > input {
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  min-width: 100%;
+  outline: none;
+  padding: 10px;
+}
+
+.select {
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  min-width: 100%;
+  outline: none;
+  padding: 10px;
+}
+
+.form > button {
+  align-self: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.form > button:hover {
+  background-color: blue;
+  color: white;
+}

@@ -1,3 +1,4 @@
+import './Login.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -39,10 +40,11 @@ class Login extends React.Component {
     const { isEnabled, email, password } = this.state;
     return (
       <div className="form-container">
-        <form>
-          {/* <h2>LOGIN</h2> () => COLOCAR UMA IMAGEM AQUI <= () */}
-          <label htmlFor="email">
+        <form className="forms">
+          <h1 className="title">LOGIN</h1>
+          <label htmlFor="email" className="label-input">
             <input
+              className="label-input"
               name="email"
               data-testid="email-input"
               type="text"
@@ -52,8 +54,9 @@ class Login extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
-          <label htmlFor="password">
+          <label htmlFor="password" className="label-input">
             <input
+              className="label-input"
               name="password"
               data-testid="password-input"
               type="password"
@@ -63,13 +66,15 @@ class Login extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
-          <input
+          <button
+            className="button"
             id="button"
             type="button"
-            value="ENTRAR"
             disabled={ isEnabled }
             onClick={ this.handleClick }
-          />
+          >
+            ENTRAR
+          </button>
         </form>
       </div>
     );

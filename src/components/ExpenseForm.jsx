@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchApiThunk } from '../actions';
 import currenciesApi from '../services/currenciesApi';
+import './ExpenseForm.css';
 
 class ExpenseForm extends Component {
   state = {
@@ -45,7 +46,7 @@ class ExpenseForm extends Component {
     const { value, currency, method, tag, description } = this.state;
     const { currencies } = this.props;
     return (
-      <form>
+      <form className="form">
         <label htmlFor="valor">
           Valor:
           <input
@@ -60,6 +61,7 @@ class ExpenseForm extends Component {
         <label htmlFor="moeda">
           Moeda:
           <select
+            className="select"
             name="currency"
             value={ currency }
             onChange={ this.handleChange }
@@ -73,6 +75,7 @@ class ExpenseForm extends Component {
         <label htmlFor="pagamento">
           Método de pagamento:
           <select
+            className="select"
             name="method"
             value={ method }
             onChange={ this.handleChange }
@@ -87,6 +90,7 @@ class ExpenseForm extends Component {
         <label htmlFor="categoria">
           Categoria:
           <select
+            className="select"
             name="tag"
             value={ tag }
             onChange={ this.handleChange }
