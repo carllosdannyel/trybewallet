@@ -36,6 +36,6 @@
 }
 
 .form > button:hover {
-  background-color: blue;
+  background: linear-gradient(rgba(20, 175, 236), rgba(0, 0, 0), rgba(0, 0, 129));
   color: white;
 }

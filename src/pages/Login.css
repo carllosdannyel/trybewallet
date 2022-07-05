@@ -38,6 +38,7 @@
 }
 
 .button {
+  border: none;
   border-radius: 10px;
   color: white;
   cursor: pointer;
@@ -47,9 +48,14 @@
 }
 
 .button:enabled {
-  background-color: blue;
+  background: linear-gradient(rgba(20, 175, 236), rgba(0, 0, 0), rgba(0, 0, 129));
   border: none;
-  outline: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .button:hover:enabled {
