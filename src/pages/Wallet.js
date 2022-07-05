@@ -72,7 +72,12 @@ class Wallet extends React.Component {
                   <td>{method}</td>
                   <td>{Number(value).toFixed(2)}</td>
                   <td>{nameOfCoins(currency)}</td>
-                  <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
+                  <td>
+                    {Number(exchangeRates[currency].ask) > 100
+                      ? Number(exchangeRates[currency].ask.replace('.', '')).toFixed(2)
+                    || Number(exchangeRates[currency].ask).toFixed(2)
+                      : Number(exchangeRates[currency].ask).toFixed(2)}
+                  </td>
                   <td>
                     {(value * (Number(exchangeRates[currency].ask > 100
                       ? exchangeRates[currency].ask.replace('.', '')
